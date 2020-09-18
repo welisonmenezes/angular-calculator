@@ -2,15 +2,22 @@
     display: flex;
     justify-content: space-between;
 }
-.botoes .botoes-row .botao:last-child {
+.botoes .botoes-row > .last{
     margin-right: 0;
 }
+.botoes .botoes-row.last app-botao-numero,
+.botoes .botoes-row.last app-botao-limpar,
+.botoes .botoes-row.last app-botao-limpar-tudo,
+.botoes .botoes-row.last app-botao-operador,
+.botoes .botoes-row.last app-botao-resultado,
+.botoes .botoes-row.last app-botao-trocar-sinal,
+.botoes .botoes-row.last app-botao-voltar,
 .botoes .botoes-row.last .botao {
     margin-bottom: 0 !important;
 }
 
 @media (max-width: 500px) {
-    .botoes .botoes-row .botao:first-child {
+    .botoes .botoes-row > .first {
         margin-left: 0;
     }
 }

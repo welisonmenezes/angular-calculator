@@ -96,6 +96,16 @@ app-root {
 
 @media (max-width: 500px) {
     .botao {
+        width: auto;
+        margin: 0;
+    }
+    app-botao-numero,
+    app-botao-limpar,
+    app-botao-limpar-tudo,
+    app-botao-operador,
+    app-botao-resultado,
+    app-botao-trocar-sinal,
+    app-botao-voltar {
         width: 100%;
         margin: .5rem;
     }

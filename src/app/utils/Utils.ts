@@ -12,7 +12,11 @@ export const retornarResultadoGeral = (numeros: string[], operadores: string[]):
     });
 
     try {
-        return resultado;
+        let res: number|string;
+        res = parseFloat(resultado);
+        res = res.toFixed(6);
+        res = parseFloat(res) * 1;
+        return res.toString();
     } catch (error) { }
 
     return resultado;

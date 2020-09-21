@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { naoNumeros } from '../../../utils/Utils';
 
 @Component({
   selector: 'app-botao-trocar-sinal',
@@ -19,7 +20,6 @@ export class BotaoTrocarSinalComponent implements OnInit {
   }
 
   trocarSinal(): void {
-    const naoNumeros = ['+', '-', '×', '÷', '.', '=', 'C', 'CE', '=/-'];
     let tempDigito = this.digito;
 
     // se resultado já foi requerido, limpar tudo

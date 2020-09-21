@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { operadoresValidos } from '../../../utils/Utils';
 
 @Component({
   selector: 'app-botao-voltar',
@@ -19,7 +20,6 @@ export class BotaoVoltarComponent implements OnInit {
   }
 
   voltarDigito(): void {
-    const operadoresValidos = ['+', '-', '×', '÷'];
     let tempDigito = this.digito;
 
     // se resultado já foi requerido, faça nada

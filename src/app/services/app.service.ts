@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { retornarResultadoGeral, posicionarScrollbar } from '../utils/Utils';
 
 export class Store {
   numeros: string[];
@@ -25,6 +26,8 @@ export class AppService {
   private data: Store = new Store([], [], '0', '0', '');
   private readonly store = new BehaviorSubject<Store>(this.data);
   readonly store$ = this.store.asObservable();
+
+  constructor() { }
 
   setNumeros(numero: string): void {
     this.data.numeros = [...this.data.numeros, numero];
@@ -66,7 +69,6 @@ export class AppService {
     this.store.next(this.data);
   }
 
-
   private atualizaResultado(): void {
     let numeroMostrado = '';
 
@@ -80,50 +82,17 @@ export class AppService {
 
     this.setHistorico(numeroMostrado);
 
-    const resultadoCalculado = this.retornarResultadoGeral(this.data.numeros, this.data.operadores);
+    const resultadoCalculado = retornarResultadoGeral(this.data.numeros, this.data.operadores);
 
     if (resultadoCalculado === undefined) {
       this.setResultado('0');
     } else {
       this.setResultado(resultadoCalculado);
     }
+
+    setTimeout(() => {
+      posicionarScrollbar();
+    }, 1);
   }
 
-  private retornarResultadoGeral = (numeros: string[], operadores: string[]): string => {
-    let resultado = numeros[0];
-
-    numeros.forEach((numero, index) => {
-      if (operadores[index - 1]) {
-        resultado = this.retornarResultadoIndividual(operadores[index - 1], resultado, numero);
-      }
-    });
-
-    try {
-      return resultado;
-    } catch (error) { }
-
-    return resultado;
-  }
-
-
-  private retornarResultadoIndividual = (operador: string, numero1: string, numero2: string): string => {
-    let resultado: number;
-
-    if (operador === '÷') {
-      resultado = (numero1 === undefined) ? parseFloat(numero2) : parseFloat(numero1) / parseFloat(numero2);
-    }
-    if (operador === '×') {
-      resultado = (numero1 === undefined) ? parseFloat(numero2) : parseFloat(numero1) * parseFloat(numero2);
-    }
-    if (operador === '-') {
-      resultado = (numero1 === undefined) ? parseFloat(numero2) : parseFloat(numero1) - parseFloat(numero2);
-    }
-    if (operador === '+') {
-      resultado = (numero1 === undefined) ? parseFloat(numero2) : parseFloat(numero1) + parseFloat(numero2);
-    }
-
-    return resultado.toString();
-  }
-
-  constructor() { }
 }

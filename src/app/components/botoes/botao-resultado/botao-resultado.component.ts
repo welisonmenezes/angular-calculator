@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { naoNumeros } from '../../../utils/Utils';
 
 @Component({
   selector: 'app-botao-resultado',
@@ -19,8 +20,6 @@ export class BotaoResultadoComponent implements OnInit {
   }
 
   mostrarResultado(event: any): void {
-    const naoNumeros = ['+', '-', '×', '÷', '.', '=', 'C', 'CE', '=/-'];
-
     // se resultado ainda não foi requerido
     if (this.digito !== '=') {
 

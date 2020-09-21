@@ -1,5 +1,6 @@
 import { AppService } from './../../../services/app.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { operadoresValidos } from '../../../utils/Utils';
 
 @Component({
   selector: 'app-botao-numero',
@@ -10,7 +11,6 @@ export class BotaoNumeroComponent implements OnInit {
 
   public numeros: string[];
   public digito = '0';
-  public operadoresValidos = ['+', '-', '×', '÷'];
 
   constructor(private appService: AppService) { }
 
@@ -37,7 +37,7 @@ export class BotaoNumeroComponent implements OnInit {
 
     } else {
       // se dígito atual é operador, seta-o como zero
-      if (this.operadoresValidos.includes(tempDigito)) {
+      if (operadoresValidos.includes(tempDigito)) {
         tempDigito = '0';
       }
 

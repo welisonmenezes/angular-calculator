@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-historico',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricoComponent implements OnInit {
 
-  constructor() { }
+  public historico = '';
+
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.store$.subscribe(res => {
+      this.historico = res.historico;
+    });
   }
 
 }

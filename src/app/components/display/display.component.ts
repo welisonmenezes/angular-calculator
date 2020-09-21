@@ -1,3 +1,4 @@
+import { AppService } from './../../services/app.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  public resultado = '0';
+
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.store$.subscribe(res => {
+      this.resultado = res.resultado;
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-botao-voltar',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotaoVoltarComponent implements OnInit {
 
-  constructor() { }
+  public digito = '0';
+
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.store$.subscribe(res => {
+      this.digito = res.digito;
+    });
+  }
+
+  voltarDigito(): void {
+    const operadoresValidos = ['+', '-', '×', '÷'];
+    let tempDigito = this.digito;
+
+    // se resultado já foi requerido, faça nada
+    if (tempDigito === '=') {
+      return;
+    }
+
+    // se dígito atual não for um operador
+    if (!operadoresValidos.includes(tempDigito)) {
+      tempDigito = tempDigito.slice(0, -1);
+
+      if (tempDigito.length < 1) {
+        tempDigito = '0';
+      }
+
+      this.appService.setDigito(tempDigito);
+      this.appService.setResultado(tempDigito);
+    }
   }
 
 }

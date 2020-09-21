@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-botao-limpar-tudo',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotaoLimparTudoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+  }
+
+  limparTudo(): void {
+    this.appService.clearNumeros();
+    this.appService.clearOperadores();
+    this.appService.setDigito('0');
+    this.appService.setResultado('0');
   }
 
 }

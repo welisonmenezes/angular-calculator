@@ -12,6 +12,7 @@ import { BotaoOperadorComponent } from './components/botoes/botao-operador/botao
 import { BotaoResultadoComponent } from './components/botoes/botao-resultado/botao-resultado.component';
 import { BotaoTrocarSinalComponent } from './components/botoes/botao-trocar-sinal/botao-trocar-sinal.component';
 import { BotaoVoltarComponent } from './components/botoes/botao-voltar/botao-voltar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BotaoVoltarComponent } from './components/botoes/botao-voltar/botao-vol
     BotaoOperadorComponent,
     BotaoResultadoComponent,
     BotaoTrocarSinalComponent,
-    BotaoVoltarComponent
+    BotaoVoltarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule

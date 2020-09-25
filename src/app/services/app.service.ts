@@ -47,6 +47,12 @@ export class AppService {
     this.atualizaResultado();
   }
 
+  trocarOperadores(operadores: string[]): void {
+    this.data.operadores = operadores;
+    this.store.next(this.data);
+    this.atualizaResultado();
+  }
+
   clearOperadores(): void {
     this.data = { ...this.data, operadores: [] };
     this.store.next(this.data);

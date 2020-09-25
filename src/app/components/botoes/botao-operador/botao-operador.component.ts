@@ -35,7 +35,7 @@ export class BotaoOperadorComponent implements OnInit {
       if (this.operadores.length === this.numeros.length) {
         const novoOperadores = [...this.operadores];
         novoOperadores[novoOperadores.length - 1] = event.target.innerHTML;
-        this.appService.setOperadores(novoOperadores.toString());
+        this.appService.trocarOperadores(novoOperadores);
       }
 
       return;

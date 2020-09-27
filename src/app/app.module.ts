@@ -13,6 +13,7 @@ import { BotaoResultadoComponent } from './components/botoes/botao-resultado/bot
 import { BotaoTrocarSinalComponent } from './components/botoes/botao-trocar-sinal/botao-trocar-sinal.component';
 import { BotaoVoltarComponent } from './components/botoes/botao-voltar/botao-voltar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ForkmeComponent } from './components/forkme/forkme.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
     BotaoResultadoComponent,
     BotaoTrocarSinalComponent,
     BotaoVoltarComponent,
-    HeaderComponent
+    HeaderComponent,
+    ForkmeComponent
   ],
   imports: [
     BrowserModule
